@@ -1,36 +1,25 @@
-
-class Solution {
-    public int pivotInteger(int n) {
-        int[] a = new int[n];
-        for (int i = 1; i <= n; i++) {
-            a[i - 1] = i;
+public class Solution {
+    public int sum(int low, int high) {
+        int ans = 0;
+        for (int i = low; i <= high; i++) {
+            ans += i;
         }
-        if(n == 1)
-        return 1;
-
-        int start = 1;
-        int last = n;
-        
-        while (start <= last) {
-           int mid = (start + last) / 2;
-            if (sumfunc(1, mid) < sumfunc(mid ,n)) { 
-                start = mid + 1;
-            } else if (sumfunc(1, mid) == sumfunc(mid, n)) { 
-                return mid;
-            } else {
-                last = mid-1;
-            }
-            // mid = (start + last) / 2;
-        }
-        return -1;
+        return ans;
     }
 
-    // Moved 'sumfunc' method outside 'pivotInteger' method
-    int sumfunc(int f, int l) {
-        int s = 0;
-        for (int i = f; i <= l; i++) {
-            s += i;
+    public int pivotInteger(int n) {
+        int low = 1;
+        int high = n;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (sum(1, mid) == sum(mid, n)) {
+                return mid;
+            } else if (sum(1, mid) > sum(mid, n)) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
         }
-        return s;
+        return -1;
     }
 }
