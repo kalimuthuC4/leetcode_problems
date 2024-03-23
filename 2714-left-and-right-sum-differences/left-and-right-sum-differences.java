@@ -4,7 +4,7 @@ class Solution {
         int s=0;
         int[] l = new int[n];
         int[] r = new int[n];
-        int[] ans = new int[n];
+        // int[] ans = new int[n];
         for(int i=0;i<n;i++)
         {
             l[i]=s;
@@ -20,8 +20,8 @@ class Solution {
         }
         for(int i=0;i<n;i++)
         {
-            ans[i] = Math.abs(l[i] - r[i]);
+            nums[i] = Math.abs(l[i] - r[i]);
         }
-        return ans;
+        return nums;
     }
 }
