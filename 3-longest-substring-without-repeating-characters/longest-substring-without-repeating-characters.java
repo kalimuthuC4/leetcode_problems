@@ -7,7 +7,7 @@ class Solution {
             if(!h.contains(s.charAt(r))){
                 h.add(s.charAt(r));
                 r++;
-                
+                m = Math.max(m,r-l);
                             // System.out.print(" "+ l+"->"+r);
 
             }
@@ -15,7 +15,7 @@ class Solution {
                 h.remove(s.charAt(l));
                 l++;
             }
-            m = Math.max(m,r-l);
+            
             System.out.print(" "+ m);
             System.out.print(h);
         }
