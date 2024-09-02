@@ -12,8 +12,6 @@ class Solution {
             else
                 return i;
         }
-        if(rem > 0)
-            return 1;
         return 0;
     }
 }
